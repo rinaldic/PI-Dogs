@@ -6,60 +6,61 @@ const{getDogs}=require("../controllers/index")
 
  // --------get("/dogs")------------------
 router.get("/", async (req, res) => {
+ 
   const name = req.query.name;
   let dogs = await getDogs(); 
 
   try {
     
-  if (name) {
-     
-    let dogsPerName = dogs.filter((dog) =>
-      dog.name.toLowerCase().includes(name.toLowerCase())
-    );
-   
-    if (dogsPerName.length < 1) {
-      return res.json({message:`Can't find dog with name: ${name}`});
-    }
-    res.status(200).json(dogsPerName);
-  } else {
-    res.status(200).json(dogs);
-  }
+        if (name) {
+          
+          let dogName = dogs.filter( dog => dog.name.toLowerCase().includes(name.toLowerCase()) );
+        
+          if (dogName.length === 0) {
+            return res.status(404).json( { message: `Can't find dog with name: ${name}` } );
+          }
+          res.status(200).json(dogsPerName);
+        } 
+        else {
+          res.status(200).json(dogs);
+        }
     
   } catch (error) {
-    res.json(404).send(`Can't find dogs`)
+    res.status(404).send(`Can't find dogs`);
   }
  
 });
-   // --------get("/dogs/:id")------------------
-   router.get('/:id', async (req,res)=>{
-    const id=req.params.id
-    let dogs=await getDogs()
 
-     let dog= dogs.find(d=>d.id==id)
+// -------------------------- get("/dogs/:id") ---------------------------------
+router.get('/:id', async (req,res) => {
+    const id = req.params.id;
+    
+    let dogs = await getDogs();
+
+     let dog = dogs.find( el => el.id == id)
   
     try {
-        if (!dog)return res.json({message:`Can't find dog with id:${id}`})
-        res.json(dog)
-    
+            if (dog) { return res.status(200).json(dog) }  
+            else { return res.status(404).json({message:`Can't find dog with id:${id}`}) }
     } catch (error) {
         console.log(error)
     }
     
    })
 
-
-// --------post("/dogs")------------------
-router.post("/", async(req,res)=>{
-    const { name, height, weight, image,yearsLife, temperaments } = req.body;
+// ------------------------- post("/dogs") -------------------------------------
+router.post("/", async(req,res)=> {
+    const { name, height, weight, image, yearsLife, temperaments } = req.body;
+    
     if (!name && !height && !weight && !image) {
-        res.status(404).send("Missing some required values")
+       return  res.status(404).send("Missing some required values. Check (name, height, weight or image)")
     }
     try {
-        const dog=await Dog.create({name, height, weight,yearsLife, image})
+        const dog = await Dog.create( {name, height, weight, yearsLife, image} )
         
         let dogTemperament= await Temperament.findAll({
-            where:{
-                name:temperaments
+            where:{ 
+                name : temperaments
             }
         })
         await dog.addTemperament(dogTemperament)

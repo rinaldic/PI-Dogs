@@ -1,43 +1,25 @@
 const { Router } = require('express');
 const router = Router();
 const {Temperament} = require('../db.js');
-const{getApiDogs}=require("../controllers/index")
 
- 
+ // --------get("/temperaments")------------------
 router.get("/", async (req, res) => {
       try {
-        let dogApi = await getApiDogs();
-        const tempsDB = await Temperament.findAll({ 
-          attributes: {
-            exclude: ['createdAt', 'updatedAt'],
-        },
-        
-        });
-        if (tempsDB.length === 0) {
-          const tempsDataBase = await dogApi
-            .map((dog) => dog.temperaments)
-            .join()
-            .split(",");
-          const temps = await tempsDataBase.map((temp) => temp.trim());
-          temps.forEach((t) => {
-            if (t !== "") {
-              Temperament.findOrCreate({
-                where: {
-                  name: t,
-                },
+              
+              const tempsDB = await Temperament.findAll({ 
+                  attributes: {
+                    exclude: ['createdAt', 'updatedAt'],
+                  },        
               });
-            }
-          });
-          const dbTemp = await Temperament.findAll();
-          if (!dbTemp) return res.status(404).send("Temperaments not found");
-          res.json(dbTemp);
-        } else {
-          res.json(tempsDB);
-        }
+
+          if (tempsDB) 
+          { return res.status(200).json( tempsDB ); }
+          else 
+          { return res.status(404).send("Temperaments not found"); }
+             
       } catch (error) {
         console.log(error);
       }
 });
-
 
 module.exports = router;
