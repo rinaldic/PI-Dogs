@@ -14,12 +14,12 @@ router.get("/", async (req, res) => {
     
         if (name) {
           
-          let dogName = dogs.filter( dog => dog.name.toLowerCase().includes(name.toLowerCase()) );
+          let dogsName = dogs.filter( dog => dog.name.toLowerCase().includes(name.toLowerCase()) );
         
-          if (dogName.length === 0) {
+          if (dogsName.length === 0) {
             return res.status(404).json( { message: `Can't find dog with name: ${name}` } );
           }
-          res.status(200).json(dogsPerName);
+          res.status(200).json(dogsName);
         } 
         else {
           res.status(200).json(dogs);
@@ -58,18 +58,24 @@ router.post("/", async(req,res)=> {
     try {
         const dog = await Dog.create( {name, height, weight, yearsLife, image} )
         
-        let dogTemperament= await Temperament.findAll({
+        const tempers = temperaments?.split(',').map(element => element.trim())
+        if (Array.isArray(tempers)){
+          let dogTemperament= await Temperament.findAll({
             where:{ 
-                name : temperaments
+                name : tempers
             }
         })
         await dog.addTemperament(dogTemperament)
+        }
+       
+       
         res.status(201).send("the dog was successfully created")
 
     } catch (error) {
         console.log(error)
     }
 })
+
 
 // --------delete("/dogs/:id")------------------
 router.delete("/:id", async(req,res)=>{
@@ -86,6 +92,9 @@ router.delete("/:id", async(req,res)=>{
     console.log(error)
   }
 })
+
+
+
 
 
 

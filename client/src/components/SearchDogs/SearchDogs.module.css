@@ -1,0 +1,80 @@
+.search{
+    display: flex;
+    flex-direction: column;
+
+    
+}
+.search input{
+    background-color: transparent;
+    border: 1px white solid;
+    border-radius: 8px;
+    position: relative;
+    bottom: 15px;
+    padding: auto;
+    color: #fff;
+    height: 25px;
+
+  
+}
+.search p{
+    color: #fff;
+    display: block;
+    font-family: "Poppins",serif;
+    position: relative;
+    top: 10px;
+    left: 5px;
+    caret-color: transparent;
+    
+}
+.search i{
+    color: #fff;
+   position:relative;
+   width: min-content;
+   left: 85%;
+   top: 3px;
+   font-size: 15px;
+   cursor: pointer;
+   z-index: 2;
+   caret-color: transparent;
+  
+
+}
+/* -------------dark mode--------------- */
+.dark_search{
+    display: flex;
+    flex-direction: column;
+ 
+
+}
+.dark_search input{
+    background-color: transparent;
+    border: 1px #061b33 solid;
+    border-radius: 8px;
+    position: relative;
+    bottom: 15px;
+    padding: auto;
+    color: #061b33;
+    
+    
+}
+.dark_search p{
+    color: #061b33;
+    font-weight: bold;
+    display: block;
+    font-family: "Poppins",serif;
+    position: relative;
+    top: 15px;
+    caret-color: transparent;
+}
+.dark_search i{
+    color:#061b33;
+   position:relative;
+   width: min-content;
+   left: 85%;
+   top: 3px;
+   font-size: 15px;
+   cursor: pointer;
+   z-index: 2;
+   caret-color: transparent;
+ 
+}

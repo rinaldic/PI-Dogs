@@ -1,0 +1,43 @@
+.empty{
+    background-image: url("https://media1.giphy.com/media/l4FGI8GoTL7N4DsyI/giphy.gif");
+    width: 100%;
+    height: 500px;
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.empty h2{
+    font-family: "Poppins",sans-serif;
+    width: 100%;
+    margin: 20px auto;
+}
+.emptyDB{
+    font-family: "Poppins",sans-serif;
+}
+
+/*---- dark mode--- */
+
+.dark_empty{
+    background-image: url("https://media1.giphy.com/media/l4FGI8GoTL7N4DsyI/giphy.gif");
+    width: 100%;
+    height: 500px;
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.dark_empty h2{
+    font-family: "Poppins",sans-serif;
+    width: 100%;
+    margin: 20px auto;
+    color: aliceblue;
+}

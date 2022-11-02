@@ -1,0 +1,106 @@
+.landing{
+    display: flex;
+   width: 100vw;
+   height: 100vh;
+   background-image: url("..//..//img/coloride.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   caret-color: transparent;
+
+}
+
+.image{
+    width:50%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    right: 25%;
+}
+.title{
+    color: #103d74;
+    font-family: 'DM Serif Text', serif;
+    font-weight: lighter;
+    font-size: 4vw;
+    position: relative;
+    top: 5vh;
+}
+.text_container{
+    display:flex;
+    flex-direction: column;
+    width: 40%;
+    text-align: left;
+    position: absolute;
+    left: 3%;
+    top: 20%;
+}
+.text_container p{
+    width: 60%;
+    font-size: 1.5vw;
+    text-align: left;
+    color: #000000;
+    
+    font-family:"Plus Jakarta Sans" ,sans-serif;
+
+}
+.btn{
+    width: 100px;
+    height: 35px;
+    background-color:  #16539f;
+    border: 1px;
+    border-radius:4px;
+}
+.btn a{
+    text-decoration: none;
+    font-family:"Plus Jakarta Sans" ,sans-serif;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    transform: translateY(-0.125em);
+    background-color: #3688ec;
+    cursor: pointer;
+}
+
+.icon_container{
+    display: flex;
+    margin-top: 1rem;
+
+}
+
+.icon_container button{
+    margin-right: 40px;
+}
+.icon_container i{
+    font-size: 3.5rem;
+    position: relative;
+    bottom: 20px;
+   color: #16539f;
+
+}
+.icon_container i:hover{
+   color: #3d71b1;
+   cursor: pointer;
+
+}
+
+
+@media only screen and (max-width: 800px) {
+   .title{
+    font-size: 15vw;
+    top: 0;
+   }
+   .text_container{
+    width: 300px;
+   top :10%;
+   z-index: 1;
+   }
+   .text_container p{
+    display: none;
+}
+.image{
+    width: 100%;
+    position: absolute;
+    right: 0%;
+}
+  }
