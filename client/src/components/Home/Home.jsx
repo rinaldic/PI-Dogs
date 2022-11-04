@@ -51,6 +51,10 @@ export default function Home ()  {
     setConfig(!config);
   }
 
+  function handleRefresh() {
+    window.location.reload();
+  }
+
   // Filters---------------------------------------
   function filterTemperaments(e) {
     console.log(e.target.value);
@@ -169,6 +173,11 @@ const pageSeter = (pageNumber) => {
             <i className="fa-solid fa-weight-hanging"></i>
             {weight ? ( <i className="fa-solid fa-down-long"></i> ) : ( <i className="fa-solid fa-up-long"></i> )}
           </button>
+
+           {/* Refresh */}
+           <button className={dark ? sty.dark_alpha : sty.alpha} onClick={handleRefresh} >
+            <i className="fa-solid fa-arrows-rotate"></i>
+           </button>
 
         </div>
       </header>
