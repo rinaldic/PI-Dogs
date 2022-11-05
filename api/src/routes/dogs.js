@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 const {Dog,Temperament} = require('../db.js');
-const{getDogs}=require("../controllers/index")
+const{getDogs, validate}=require("../controllers/index")
 
 
  // --------get("/dogs")------------------
@@ -51,18 +51,21 @@ router.get('/:id', async (req,res) => {
 // ------------------------- post("/dogs") -------------------------------------
 router.post("/", async(req,res)=> {
     const { name, height, weight, image, yearsLife, temperaments } = req.body;
-    
-    if (!name && !height && !weight && !image) {
-       return  res.status(404).send("Missing some required values. Check (name, height, weight or image)")
+    const responseVal = validate(req.body);
+    // Validate data of the Dog    
+    if (responseVal.length > 0)
+    {
+       return  res.status(404).send(responseVal);
     }
+
     try {
         const dog = await Dog.create( {name, height, weight, yearsLife, image} )
         
-        const tempers = temperaments?.split(',').map(element => element.trim())
-        if (Array.isArray(tempers)){
+         
+        if (Array.isArray(temperaments)){
           let dogTemperament= await Temperament.findAll({
             where:{ 
-                name : tempers
+                name : temperaments
             }
         })
         await dog.addTemperament(dogTemperament)

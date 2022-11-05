@@ -103,7 +103,7 @@ const pageSeter = (pageNumber) => {
       <header className={sty.header}>
         
         <div className={dark ? sty.dark_header_search : sty.header_search}>
-          {/* page refresh */}
+          {/* page Landing */}
           <img
             onClick={handleClickImage}
             className={sty.logo}
