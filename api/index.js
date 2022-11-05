@@ -20,11 +20,12 @@
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const {initial_Temperament} = require("./src/controllers/index")
+const port = process.env.PORT || 3001;
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
   initial_Temperament();
-  server.listen(3001, () => {
+  server.listen(port, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 });
