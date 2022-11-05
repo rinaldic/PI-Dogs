@@ -11,19 +11,22 @@ export default function DogCard ({ name, id, weight, image, temperaments }) {
   }
   const dark = useSelector((state) => state.dark);
   return (
-    <div onClick={handleClickCard} className={dark ? sty.dark_card : sty.card}>
-          <img className={sty.image} src={image} alt="" />
-          <div className={sty.text}>
-              <strong>{name}</strong>
-              <p className={sty.weight}>
-                <strong>Weight: </strong>
-                {weight?weight:"10-50"}
-              </p>
-              <p className={sty.temperaments}>
-                <strong>Temperament: </strong>
-                {temperaments}.
-              </p>
-          </div>
+    <div onClick={handleClickCard} className={dark?sty.dark_card:sty.card}>
+      
+      <img className={sty.image} src={image} alt="" />
+     
+      <div className={ sty.text }>
+        <strong>{name}</strong>
+        <p className={sty.weight}>
+          <strong>Weight: </strong>
+          {weight?weight:"10-50"}
+        </p>
+        <p className={sty.temperaments}>
+          <strong>Temperament: </strong>
+          {temperaments}.
+        </p>
+      </div>
+    
     </div>
   );
 };

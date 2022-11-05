@@ -179,6 +179,16 @@ const pageSeter = (pageNumber) => {
             <i className="fa-solid fa-arrows-rotate"></i>
            </button>
 
+           {config ? (
+              <Config setConfig={setConfig} setDogsPerPage={setDogsPerPage} dark={dark} />
+            ) : (
+              
+                <button className={dark ? sty.dark_alpha : sty.alpha} onClick={handleConfig}>
+                  <i className="fa-solid fa-gear"></i>
+                </button>
+             
+            )}
+
         </div>
       </header>
       <div className={sty.pages}>
@@ -235,19 +245,7 @@ const pageSeter = (pageNumber) => {
           </>
         )}
       </main>
-      {config ? (
-        <Config
-          setConfig={setConfig}
-          setDogsPerPage={setDogsPerPage}
-          dark={dark}
-        />
-      ) : (
-        <div className={dark ? sty.dark_config : sty.config}>
-          <button onClick={handleConfig}>
-            <i className="fa-solid fa-gear"></i>
-          </button>
-        </div>
-      )}
+      
       <div className={sty.bone}>
         <span>#{page}</span>
         <img

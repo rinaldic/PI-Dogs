@@ -1,7 +1,7 @@
 .container{
     position: absolute; 
     top: 0;
-    width: 100%; 
+    width: 106%; 
     height: 100vh; 
     background-color: rgba(7, 21, 126, 75%); 
     display: flex;
@@ -31,7 +31,7 @@
     justify-content: center;
     justify-items: left;
     align-items: left;
- background-color: rgba(255, 255, 255, 0.511);
+    background-color: rgb(150 153 253 / 85%);
  padding: 40px;
  border-radius: 40px;
 font-family:"Outfit" ,sans-serif;

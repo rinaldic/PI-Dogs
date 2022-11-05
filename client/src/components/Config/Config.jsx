@@ -32,7 +32,7 @@ export default function Config ({ setConfig, setDogsPerPage, dark }) {
               <div className={sty.dark}>
                 <p>Dark mode</p>
                 <button onClick={handleDark}>
-                  <i className="fa-solid fa-moon"></i>
+                  <i className={ dark ? "fa-solid fa-sun" : "fa-solid fa-moon"}></i>
                 </button>
               </div>
 
