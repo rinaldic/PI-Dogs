@@ -1,5 +1,8 @@
 import axios from "axios";
-const url = "http://localhost:3001";
+
+//const url = "http://localhost:3001";
+const url = "https://pi-dogs-production-0cbe.up.railway.app";
+
 export const GET_DOGS = "GET_DOGS";
 export const GET_DOG_DETAILS = "GET_DOG_DETAILS";
 export const SEARCH_DOGS = "SEARCH_DOGS";
