@@ -10,14 +10,17 @@
     2.6deg,
     rgb(126, 154, 191) 16%,
     rgb(254, 255, 255) 91.1%
+    
   );
+
 }
 
 .container {
     width: 80%;
     max-height: 80%;
     display: flex;
-
+    box-shadow: 0 20px 28px rgba(255, 255, 255, 0.25), 0 20px 20px rgba(255, 255, 255, 0.22);
+    border-radius: 15px;
 }
 
 .container img {
@@ -31,6 +34,7 @@
     padding: 20px;
     width: 40%;
     background-color: #103d74;
+    box-shadow: 0 20px 28px rgba(255, 255, 255, 0.25), 0 20px 20px rgba(255, 255, 255, 0.22);
 }
 
 .text h1 {
